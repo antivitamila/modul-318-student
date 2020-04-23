@@ -24,7 +24,7 @@ namespace SwissTransport
             return null;
         }
 
-        public StationBoardRoot GetStationBoard(string station, string id)
+        public StationBoardRoot GetStationBoard(string station, string id, string time)
         {
             station = System.Uri.EscapeDataString(station);
             id = System.Uri.EscapeDataString(id);
@@ -43,7 +43,7 @@ namespace SwissTransport
             return null;
         }
 
-        public Connections GetConnections(string fromStation, string toStation)
+        public Connections GetConnections(string fromStation, string toStation, string time)
         {
             fromStation = System.Uri.EscapeDataString(fromStation);
             toStation = System.Uri.EscapeDataString(toStation);
@@ -54,8 +54,9 @@ namespace SwissTransport
             if (responseStream != null)
             {
                 var readToEnd = new StreamReader(responseStream).ReadToEnd();
-                var connections =
-                    JsonConvert.DeserializeObject<Connections>(readToEnd);
+                Connections connections1 = JsonConvert.DeserializeObject<Connections>(readToEnd);
+                Connections connections =
+                    connections1;
                 return connections;
             }
 
@@ -71,6 +72,16 @@ namespace SwissTransport
             request.Proxy = webProxy;
             
             return request;
+        }
+
+        public StationBoardRoot GetStationBoard(string station, string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Connections GetConnections(string fromStation, string toStattion)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
