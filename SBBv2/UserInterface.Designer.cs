@@ -1,4 +1,4 @@
-﻿namespace GUI
+﻿namespace SBBv2
 {
     partial class ConnectionProgram
     {
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.labelFrom = new System.Windows.Forms.Label();
+            this.labelTo = new System.Windows.Forms.Label();
             this.btnConnection = new System.Windows.Forms.Button();
             this.dgvConnection = new System.Windows.Forms.DataGridView();
             this.DepartureConnections = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@
             this.Arrival = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.To = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelConnections = new System.Windows.Forms.Label();
             this.txtFromStation = new System.Windows.Forms.TextBox();
             this.lbFromAutoInputList = new System.Windows.Forms.ListBox();
             this.dgvStationBoard = new System.Windows.Forms.DataGridView();
@@ -53,43 +53,45 @@
             this.txtToStation = new System.Windows.Forms.TextBox();
             this.lbToAutoInputList = new System.Windows.Forms.ListBox();
             this.dtSetTime = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelHeader = new System.Windows.Forms.Panel();
             this.companyName = new System.Windows.Forms.Label();
             this.slogan = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSwap = new System.Windows.Forms.Button();
+            this.btnConnectionHidden = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnToStationBoardHidden = new System.Windows.Forms.Button();
+            this.btnFromStationBoardHidden = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConnection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStationBoard)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // labelFrom
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(476, 153);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 46);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "ABFAHRT";
+            this.labelFrom.AutoSize = true;
+            this.labelFrom.BackColor = System.Drawing.Color.Transparent;
+            this.labelFrom.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFrom.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.labelFrom.Location = new System.Drawing.Point(476, 153);
+            this.labelFrom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFrom.Name = "labelFrom";
+            this.labelFrom.Size = new System.Drawing.Size(176, 46);
+            this.labelFrom.TabIndex = 2;
+            this.labelFrom.Text = "ABFAHRT";
+            this.labelFrom.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // labelTo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(1224, 153);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 46);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "ANKUNFT";
+            this.labelTo.AutoSize = true;
+            this.labelTo.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTo.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.labelTo.Location = new System.Drawing.Point(1224, 153);
+            this.labelTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTo.Name = "labelTo";
+            this.labelTo.Size = new System.Drawing.Size(185, 46);
+            this.labelTo.TabIndex = 3;
+            this.labelTo.Text = "ANKUNFT";
+            this.labelTo.Click += new System.EventHandler(this.labelTo_Click);
             // 
             // btnConnection
             // 
@@ -117,14 +119,14 @@
             this.dgvConnection.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConnection.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvConnection.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConnection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConnection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvConnection.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConnection.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DepartureConnections,
@@ -186,18 +188,18 @@
             this.Duration.Name = "Duration";
             this.Duration.ReadOnly = true;
             // 
-            // label4
+            // labelConnections
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(52, 547);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(294, 46);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "VERBINDUNGEN";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.labelConnections.AutoSize = true;
+            this.labelConnections.Font = new System.Drawing.Font("Corbel", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConnections.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.labelConnections.Location = new System.Drawing.Point(52, 547);
+            this.labelConnections.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelConnections.Name = "labelConnections";
+            this.labelConnections.Size = new System.Drawing.Size(294, 46);
+            this.labelConnections.TabIndex = 11;
+            this.labelConnections.Text = "VERBINDUNGEN";
+            this.labelConnections.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtFromStation
             // 
@@ -234,27 +236,27 @@
             this.dgvStationBoard.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStationBoard.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgvStationBoard.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStationBoard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStationBoard.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStationBoard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStationBoard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DepartureStationBoard,
             this.NameStationBoard,
             this.Destination});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStationBoard.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Corbel", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStationBoard.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStationBoard.GridColor = System.Drawing.SystemColors.Control;
             this.dgvStationBoard.Location = new System.Drawing.Point(51, 599);
             this.dgvStationBoard.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -359,16 +361,16 @@
             this.dtSetTime.TabIndex = 19;
             this.dtSetTime.ValueChanged += new System.EventHandler(this.dtSetTime_ValueChanged);
             // 
-            // panel1
+            // panelHeader
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.companyName);
-            this.panel1.Location = new System.Drawing.Point(-3, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1845, 96);
-            this.panel1.TabIndex = 20;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panelHeader.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panelHeader.Controls.Add(this.companyName);
+            this.panelHeader.Location = new System.Drawing.Point(-3, -1);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1845, 96);
+            this.panelHeader.TabIndex = 20;
+            this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // companyName
             // 
@@ -396,85 +398,85 @@
             this.slogan.Text = "SBB reworked";
             this.slogan.Click += new System.EventHandler(this.slogan_Click);
             // 
-            // button1
+            // btnSwap
             // 
-            this.button1.BackColor = System.Drawing.Color.AliceBlue;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(845, 364);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 68);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "SWAP";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.ClickStartToEnd);
+            this.btnSwap.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnSwap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSwap.FlatAppearance.BorderSize = 0;
+            this.btnSwap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSwap.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold);
+            this.btnSwap.Location = new System.Drawing.Point(845, 364);
+            this.btnSwap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(150, 68);
+            this.btnSwap.TabIndex = 21;
+            this.btnSwap.Text = "SWAP";
+            this.btnSwap.UseVisualStyleBackColor = false;
+            this.btnSwap.Click += new System.EventHandler(this.ClickStartToEnd);
             // 
-            // button2
+            // btnConnectionHidden
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(233, 444);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(1372, 79);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "alle Verbindungen suchen";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnConnectionHidden.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnConnectionHidden.Enabled = false;
+            this.btnConnectionHidden.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btnConnectionHidden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnectionHidden.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConnectionHidden.ForeColor = System.Drawing.Color.White;
+            this.btnConnectionHidden.Location = new System.Drawing.Point(233, 444);
+            this.btnConnectionHidden.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnConnectionHidden.Name = "btnConnectionHidden";
+            this.btnConnectionHidden.Size = new System.Drawing.Size(1372, 79);
+            this.btnConnectionHidden.TabIndex = 22;
+            this.btnConnectionHidden.Text = "alle Verbindungen suchen";
+            this.btnConnectionHidden.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnReset
             // 
-            this.button3.BackColor = System.Drawing.Color.AliceBlue;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button3.Location = new System.Drawing.Point(1615, 444);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 79);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "RESET";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.btnResetTextBox);
+            this.btnReset.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnReset.Location = new System.Drawing.Point(1615, 444);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(149, 79);
+            this.btnReset.TabIndex = 23;
+            this.btnReset.Text = "RESET";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnResetTextBox);
             // 
-            // button5
+            // btnToStationBoardHidden
             // 
-            this.button5.BackColor = System.Drawing.Color.Pink;
-            this.button5.Enabled = false;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button5.Location = new System.Drawing.Point(1004, 364);
-            this.button5.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(601, 68);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "alle Ankünfte anzeigen";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnToStationBoardHidden.BackColor = System.Drawing.Color.Pink;
+            this.btnToStationBoardHidden.Enabled = false;
+            this.btnToStationBoardHidden.FlatAppearance.BorderSize = 0;
+            this.btnToStationBoardHidden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToStationBoardHidden.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToStationBoardHidden.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnToStationBoardHidden.Location = new System.Drawing.Point(1004, 364);
+            this.btnToStationBoardHidden.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnToStationBoardHidden.Name = "btnToStationBoardHidden";
+            this.btnToStationBoardHidden.Size = new System.Drawing.Size(601, 68);
+            this.btnToStationBoardHidden.TabIndex = 25;
+            this.btnToStationBoardHidden.Text = "alle Ankünfte anzeigen";
+            this.btnToStationBoardHidden.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnFromStationBoardHidden
             // 
-            this.button4.BackColor = System.Drawing.Color.Pink;
-            this.button4.Enabled = false;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button4.Location = new System.Drawing.Point(233, 364);
-            this.button4.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(603, 68);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "alle Abfahrten anzeigen";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnFromStationBoardHidden.BackColor = System.Drawing.Color.Pink;
+            this.btnFromStationBoardHidden.Enabled = false;
+            this.btnFromStationBoardHidden.FlatAppearance.BorderSize = 0;
+            this.btnFromStationBoardHidden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFromStationBoardHidden.Font = new System.Drawing.Font("Corbel", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFromStationBoardHidden.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnFromStationBoardHidden.Location = new System.Drawing.Point(233, 364);
+            this.btnFromStationBoardHidden.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnFromStationBoardHidden.Name = "btnFromStationBoardHidden";
+            this.btnFromStationBoardHidden.Size = new System.Drawing.Size(603, 68);
+            this.btnFromStationBoardHidden.TabIndex = 24;
+            this.btnFromStationBoardHidden.Text = "alle Abfahrten anzeigen";
+            this.btnFromStationBoardHidden.UseVisualStyleBackColor = false;
             // 
             // ConnectionProgram
             // 
@@ -484,10 +486,10 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1840, 1050);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSwap);
             this.Controls.Add(this.slogan);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.lbToAutoInputList);
             this.Controls.Add(this.lbFromAutoInputList);
             this.Controls.Add(this.dtSetTime);
@@ -496,14 +498,14 @@
             this.Controls.Add(this.btnFromStationBoard);
             this.Controls.Add(this.dgvStationBoard);
             this.Controls.Add(this.txtFromStation);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelConnections);
             this.Controls.Add(this.dgvConnection);
             this.Controls.Add(this.btnConnection);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.labelTo);
+            this.Controls.Add(this.labelFrom);
+            this.Controls.Add(this.btnConnectionHidden);
+            this.Controls.Add(this.btnFromStationBoardHidden);
+            this.Controls.Add(this.btnToStationBoardHidden);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -511,19 +513,19 @@
             this.Load += new System.EventHandler(this.ConnectionProgram_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConnection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStationBoard)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelFrom;
+        private System.Windows.Forms.Label labelTo;
         private System.Windows.Forms.Button btnConnection;
         private System.Windows.Forms.DataGridView dgvConnection;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelConnections;
         private System.Windows.Forms.TextBox txtFromStation;
         private System.Windows.Forms.ListBox lbFromAutoInputList;
         private System.Windows.Forms.DataGridView dgvStationBoard;
@@ -541,14 +543,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Arrival;
         private System.Windows.Forms.DataGridViewTextBoxColumn To;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label slogan;
         private System.Windows.Forms.Label companyName;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSwap;
+        private System.Windows.Forms.Button btnConnectionHidden;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnToStationBoardHidden;
+        private System.Windows.Forms.Button btnFromStationBoardHidden;
     }
 }
 

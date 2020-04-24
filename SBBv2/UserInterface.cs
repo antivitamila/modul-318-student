@@ -1,15 +1,9 @@
-﻿using System;
+﻿using SwissTransport;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SwissTransport;
 
-namespace GUI
+namespace SBBv2
 {
     public partial class ConnectionProgram : Form
     {
@@ -28,6 +22,11 @@ namespace GUI
 
         private List<StationBoard> GetStationBoard(string input, string id, string time)
         {
+            if (input is null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
             StationBoardRoot root = transportApi.GetStationBoard(txtToStation.Text, id, time);
 
             if (root != null)
@@ -51,7 +50,7 @@ namespace GUI
 
         private void CheckConnectionButton() // aktivieren/deaktivieren Connection Button, je nach Zustand des Textfelds
         {
-            if(txtFromStation.Text != String.Empty && txtToStation.Text != String.Empty)
+            if (!string.IsNullOrEmpty(txtFromStation.Text) && !string.IsNullOrEmpty(txtToStation.Text))
             {
                 btnConnection.Visible = true;
             }
@@ -63,19 +62,19 @@ namespace GUI
 
         private void FindConnectionButton(object sender, EventArgs e)
         {
-            string time = dtSetTime.Value.ToString("HH:mm");
-
             dgvStationBoard.Visible = false;
 
             dgvConnection.Rows.Clear();
             dgvConnection.Refresh();
 
+            string time = dtSetTime.Value.ToString("HH:mm");
             List<Connection> railwayConnection = transportApi.GetConnections(txtFromStation.Text, txtToStation.Text, time).ConnectionList;
             foreach (Connection connection in railwayConnection)
             {
                 string duration = connection.Duration.Substring(6, 2);
 
-                dgvConnection.Rows.Add(Convert.ToDateTime(connection.From.Departure).ToShortTimeString(), connection.From.Platform, connection.From.Station.Name, connection.To.Arrival, connection.To.Station.Name, duration + " Min");
+                _ = dgvConnection.Rows.Add(Convert.ToDateTime(connection.From.Departure)
+                    .ToShortTimeString(), connection.From.Platform, connection.From.Station.Name, connection.To.Arrival, connection.To.Station.Name, duration + " Min");
             }
         }
 
@@ -115,10 +114,10 @@ namespace GUI
 
         private void FromStationTextBox_TextChanged(object sender, EventArgs e) // Autocomplete Abfahrt
         {
-            lbFromAutoInputList.Visible  = true;
+            lbFromAutoInputList.Visible = true;
             List<Station> stationNames = GetStations(txtFromStation.Text).StationList;
 
-            lbFromAutoInputList.DataSource    = stationNames;
+            lbFromAutoInputList.DataSource = stationNames;
             lbFromAutoInputList.DisplayMember = "name";
 
             btnFromStationBoard.Visible = true;
@@ -133,10 +132,10 @@ namespace GUI
 
         private void ToStationTextBox_TextChanged(object sender, EventArgs e) // Autocomplete for Ankunft
         {
-            lbToAutoInputList.Visible    = true;
+            lbToAutoInputList.Visible = true;
             List<Station> stationNames = GetStations(txtToStation.Text).StationList;
 
-            lbToAutoInputList.DataSource    = stationNames;
+            lbToAutoInputList.DataSource = stationNames;
             lbToAutoInputList.DisplayMember = "name";
 
             btnToStationBoard.Visible = true;
@@ -149,12 +148,12 @@ namespace GUI
             lbToAutoInputList.Hide();
         }
 
-        private void ClickStartToEnd(object sender, EventArgs e) // SWAP (Abfahrten/Ankünfte)
+        private void ClickStartToEnd(object sender, EventArgs e) // SWAP (Abfahrten/Ankünfte) 
         {
             string from = txtFromStation.Text;
-            string to   = txtToStation.Text;
+            string to = txtToStation.Text;
             txtFromStation.Text = to;
-            txtToStation.Text   = from;
+            txtToStation.Text = from;
         }
 
         private void btnResetTextBox(object sender, EventArgs e)
@@ -170,7 +169,7 @@ namespace GUI
 
         }
 
-      
+
 
         private void companyName_Click(object sender, EventArgs e)
         {
@@ -214,6 +213,16 @@ namespace GUI
         }
 
         private void ConnectionProgram_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTo_Click(object sender, EventArgs e)
         {
 
         }

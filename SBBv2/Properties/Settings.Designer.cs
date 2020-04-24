@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GUI.Properties
+namespace SBBv2.Properties
 {
 
 
